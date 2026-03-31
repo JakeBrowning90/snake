@@ -1,4 +1,5 @@
 import "./styles/style.css";
+// import { functionName } from "./modules/xFuncModTemplate";
 
 function hightlightKey(e) {
   //   console.log(`${e.code}`);
@@ -160,4 +161,3 @@ playerChar.setAttribute("id", "playerChar");
 
 startingCell.appendChild(playerChar);
 spawnFruit();
-// helloWorld();
