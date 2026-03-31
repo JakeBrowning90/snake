@@ -7,9 +7,11 @@
     <!-- No script tag needed, automatically handled by HtmlWebpackPlugin -->
   </head>
   <body>
-    <header>Keyboard Test</header>
+    <header>Snake</header>
     <main>
-      <div id="keyPad">
+      <span id="scoreboard"></span>
+      <div id="playField"></div>
+      <div class="keyPad">
         <span></span>
         <span id="KeyW">W</span>
         <span></span>
@@ -17,8 +19,14 @@
         <span id="KeyS">S</span>
         <span id="KeyD">D</span>
       </div>
-      <span id="scoreboard"></span>
-      <div id="playField"></div>
+      <div class="keyPad">
+        <span></span>
+        <span id="ArrowUp">&uarr;</span>
+        <span></span>
+        <span id="ArrowLeft">&larr;</span>
+        <span id="ArrowDown">&darr;</span>
+        <span id="ArrowRight">&rarr;</span>
+      </div>
     </main>
   </body>
 </html>

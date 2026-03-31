@@ -2,7 +2,7 @@ import "./styles/style.css";
 // import { functionName } from "./modules/xFuncModTemplate";
 
 function hightlightKey(e) {
-  //   console.log(`${e.code}`);
+  // console.log(`${e.code}`);
   let targetedKey = document.getElementById(e.code);
   // Don't throw errors for unbound keys
   if (targetedKey) {
@@ -11,7 +11,7 @@ function hightlightKey(e) {
 }
 
 function unhightlightKey(e) {
-  //   console.log(`${e.code}`);
+  // console.log(`${e.code}`);
   let targetedKey = document.getElementById(e.code);
   if (targetedKey) {
     targetedKey.classList.remove("activeKey");
@@ -19,13 +19,13 @@ function unhightlightKey(e) {
 }
 
 function getMovement(e) {
-  if (e.code == "KeyW") {
+  if (e.code == "KeyW" || e.code == "ArrowUp") {
     executeMovement("up");
-  } else if (e.code == "KeyA") {
+  } else if (e.code == "KeyA" || e.code == "ArrowLeft") {
     executeMovement("left");
-  } else if (e.code == "KeyS") {
+  } else if (e.code == "KeyS" || e.code == "ArrowDown") {
     executeMovement("down");
-  } else if (e.code == "KeyD") {
+  } else if (e.code == "KeyD" || e.code == "ArrowRight") {
     executeMovement("right");
   }
 }
