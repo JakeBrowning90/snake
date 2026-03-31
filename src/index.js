@@ -1,3 +1,5 @@
+import "./styles/style.css";
+
 function hightlightKey(e) {
   //   console.log(`${e.code}`);
   let targetedKey = document.getElementById(e.code);
@@ -158,3 +160,4 @@ playerChar.setAttribute("id", "playerChar");
 
 startingCell.appendChild(playerChar);
 spawnFruit();
+// helloWorld();
