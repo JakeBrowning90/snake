@@ -1,5 +1,5 @@
 import { fieldSize } from "./gameVariables";
-import { playerChar } from "./playerBehavior";
+import { playerHead, playerSpaces } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 
 function getMovement(e) {
@@ -17,7 +17,7 @@ function getMovement(e) {
 function executeMovement(input) {
   console.log(input);
   // get current location
-  let location = document.getElementById("playerChar").parentElement;
+  let location = document.getElementById("playerHead").parentElement;
   // console.log(location);
   // get destination based on direction
   let destination;
@@ -50,8 +50,8 @@ function executeMovement(input) {
   }
 
   // console.log(newLocation);
-  location.removeChild(playerChar);
-  newLocation.appendChild(playerChar);
+  location.removeChild(playerHead);
+  newLocation.appendChild(playerHead);
   checkFruitGet(newLocation);
 }
 

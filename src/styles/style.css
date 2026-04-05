@@ -37,7 +37,8 @@
   border: 1px solid rgb(189, 189, 189);
 }
 
-#playerChar,
+#playerHead,
+.playerSegment,
 .fruit {
   border-radius: 50%;
   border: 2px solid black;
@@ -46,9 +47,17 @@
   grid-column: 1;
 }
 
-#playerChar {
-  background-color: rgb(249, 255, 80);
+#playerHead,
+.playerSegment {
   height: 99%;
+}
+
+#playerHead {
+  background-color: rgb(255, 194, 80);
+}
+
+.playerSegment {
+  background-color: rgb(249, 255, 80);
 }
 
 .fruit {

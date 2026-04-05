@@ -2,6 +2,6 @@
 //   console.log("Hello world");
 // };
 
-let fieldSize = 9;
+let fieldSize = 15;
 
 export { fieldSize };

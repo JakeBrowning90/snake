@@ -1,7 +1,12 @@
 import "./styles/style.css";
 // import { functionName } from "./modules/xFuncModTemplate";
 import { fieldSize } from "./modules/gameVariables";
-import { playerChar, playerScore } from "./modules/playerBehavior";
+import {
+  playerHead,
+  playerSegment,
+  playerSpaces,
+  playerScore,
+} from "./modules/playerBehavior";
 import { spawnFruit } from "./modules/fruitBehavior";
 import { getMovement } from "./modules/movementControls";
 
@@ -72,6 +77,10 @@ scoreboard.textContent = playerScore;
 
 let center = getCenterField(fieldSize);
 let startingCell = document.getElementById(`${center}, ${center}`);
+let tailCell = document.getElementById(`${center}, ${center - 1}`);
+playerSpaces.push(startingCell, tailCell);
+console.log(playerSpaces);
+startingCell.appendChild(playerHead);
+tailCell.appendChild(playerSegment);
 
-startingCell.appendChild(playerChar);
 spawnFruit();

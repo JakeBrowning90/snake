@@ -1,5 +1,10 @@
-let playerChar = document.createElement("div");
-playerChar.setAttribute("id", "playerChar");
+let playerHead = document.createElement("div");
+playerHead.setAttribute("id", "playerHead");
+let playerSegment = document.createElement("div");
+playerSegment.setAttribute("class", "playerSegment");
+
+let playerLength = 2
+let playerSpaces = new Array(playerLength)
 
 let playerScore = 0;
 
@@ -7,4 +12,4 @@ function increaseScore(x) {
   playerScore = playerScore + x;
 }
 
-export { playerChar, playerScore, increaseScore };
+export { playerHead, playerSegment, playerSpaces, playerScore, increaseScore };
