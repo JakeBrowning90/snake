@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .keyPad {
   width: 150px;
   height: 75px;
@@ -27,7 +31,9 @@
 }
 
 .playCell {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid rgb(189, 189, 189);
 }
 
@@ -41,11 +47,11 @@
 }
 
 #playerChar {
-  background-color: rgb(255, 234, 9);
-  height: 66%;
+  background-color: rgb(249, 255, 80);
+  height: 99%;
 }
 
 .fruit {
   background-color: rgb(230, 47, 72);
-  height: 33%;
+  height: 50%;
 }
