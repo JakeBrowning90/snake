@@ -12,8 +12,7 @@
 * Automatic forward movement
 * Speed options?
 * Obstacle spawns?
-* Limit controls to prevent reversing
-* Prevent fruit spawns on snake's body / min distance from head
+* fruit spawns min distance from head
 * On-screen controls for mobile
 * Reorient snake's head when changing direction
 
