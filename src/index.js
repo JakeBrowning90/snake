@@ -82,7 +82,7 @@ playerSpaces.push(startingCell);
 startingCell.appendChild(playerHead);
 
 // Length movement test
-let bodyLength = 5;
+let bodyLength = 8;
 for (let i = 1; i < bodyLength; i++) {
   let tailCell = document.getElementById(`${center}, ${center - i}`);
   playerSpaces.push(tailCell);
