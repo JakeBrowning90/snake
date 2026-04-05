@@ -1,5 +1,9 @@
 import "./styles/style.css";
 // import { functionName } from "./modules/xFuncModTemplate";
+import { fieldSize } from "./modules/gameVariables";
+import { playerChar, playerScore } from "./modules/playerBehavior";
+import { spawnFruit } from "./modules/fruitBehavior";
+import { getMovement } from "./modules/movementControls";
 
 function hightlightKey(e) {
   // console.log(`${e.code}`);
@@ -16,83 +20,6 @@ function unhightlightKey(e) {
   if (targetedKey) {
     targetedKey.classList.remove("activeKey");
   }
-}
-
-function getMovement(e) {
-  if (e.code == "KeyW" || e.code == "ArrowUp") {
-    executeMovement("up");
-  } else if (e.code == "KeyA" || e.code == "ArrowLeft") {
-    executeMovement("left");
-  } else if (e.code == "KeyS" || e.code == "ArrowDown") {
-    executeMovement("down");
-  } else if (e.code == "KeyD" || e.code == "ArrowRight") {
-    executeMovement("right");
-  }
-}
-
-function executeMovement(input) {
-  console.log(input);
-  // get current location
-  let location = document.getElementById("playerChar").parentElement;
-  // console.log(location);
-  // get destination based on direction
-  let destination;
-  if (input == "up") {
-    destination = parseInt(location.getAttribute("yloc")) + 1;
-  } else if (input == "down") {
-    destination = parseInt(location.getAttribute("yloc")) - 1;
-  } else if (input == "left") {
-    destination = parseInt(location.getAttribute("xloc")) - 1;
-  } else if (input == "right") {
-    destination = parseInt(location.getAttribute("xloc")) + 1;
-  }
-  // console.log(destination);
-  // determine if destination is valid
-  if (destination < 0 || destination >= fieldSize) {
-    console.log("invalid move");
-    return;
-  }
-
-  // complete movement if valid
-  let newLocation;
-  if (input == "up" || input == "down") {
-    newLocation = document.getElementById(
-      location.getAttribute("xloc") + ", " + destination,
-    );
-  } else if (input == "left" || input == "right") {
-    newLocation = document.getElementById(
-      destination + ", " + location.getAttribute("yloc"),
-    );
-  }
-
-  // console.log(newLocation);
-  location.removeChild(playerChar);
-  newLocation.appendChild(playerChar);
-  checkFruitGet(newLocation);
-}
-
-function checkFruitGet(newLocation) {
-  if (newLocation.querySelector(".fruit")) {
-    // Remove current fruit
-    newLocation.removeChild(newLocation.querySelector(".fruit"));
-    // Add to score
-    playerScore++;
-    scoreboard.textContent = playerScore;
-    // Spawn new fruit
-    spawnFruit();
-  }
-}
-
-function spawnFruit() {
-  let fruit = document.createElement("div");
-  fruit.classList.add("fruit");
-  // Get random cell
-  let randX = Math.floor(Math.random() * fieldSize);
-  let randY = Math.floor(Math.random() * fieldSize);
-  // console.log(`${randX}, ${randY}`);
-  // TODO: disallow spawn in same space or space occupied by playerChar
-  let randSpawn = document.getElementById(`${randX}, ${randY}`);
-  randSpawn.appendChild(fruit);
 }
 
 document.addEventListener("keydown", hightlightKey);
@@ -138,26 +65,13 @@ function getCenterField(fieldSize) {
   return center;
 }
 
-// EDIT FIELD SIZE
-let fieldSize = 9;
 drawPlayfield(fieldSize);
 
-let playerScore = 0;
 let scoreboard = document.getElementById("scoreboard");
 scoreboard.textContent = playerScore;
 
 let center = getCenterField(fieldSize);
 let startingCell = document.getElementById(`${center}, ${center}`);
-let playerChar = document.createElement("div");
-playerChar.setAttribute("id", "playerChar");
-// playerChar.classList.add("playerChar");
-
-// let x = document.createAttribute("xLoc");
-// x.value = startingCell.x;
-// playerChar.setAttributeNode(x);
-// let y = document.createAttribute("yLoc");
-// y.value = startingCell.y;
-// playerChar.setAttributeNode(y);
 
 startingCell.appendChild(playerChar);
 spawnFruit();
