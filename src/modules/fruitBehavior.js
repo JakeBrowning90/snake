@@ -1,5 +1,5 @@
 import { fieldSize } from "./gameVariables";
-import { playerScore, increaseScore } from "./playerBehavior";
+import { playerScore, increaseScore, playerSpaces } from "./playerBehavior";
 
 function checkFruitGet(newLocation) {
   if (newLocation.querySelector(".fruit")) {
@@ -19,9 +19,13 @@ function spawnFruit() {
   // Get random cell
   let randX = Math.floor(Math.random() * fieldSize);
   let randY = Math.floor(Math.random() * fieldSize);
-  // console.log(`${randX}, ${randY}`);
-  // TODO: disallow spawn in same space or space occupied by playerChar
   let randSpawn = document.getElementById(`${randX}, ${randY}`);
+  // If the random cell is one occupied by the player, reroll until is not
+  while (playerSpaces.includes(randSpawn)) {
+    randX = Math.floor(Math.random() * fieldSize);
+    randY = Math.floor(Math.random() * fieldSize);
+    randSpawn = document.getElementById(`${randX}, ${randY}`);
+  }
   randSpawn.appendChild(fruit);
 }
 
