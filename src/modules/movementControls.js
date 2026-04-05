@@ -19,13 +19,23 @@ function getMovement(e) {
   }
 }
 
+function isMoveOffBoard(destination) {
+  if (!destination) {
+    return true;
+  }
+}
+
+function isMoveThroughSelf(destination) {
+  if (playerSpaces.includes(destination)) {
+    return true;
+  }
+}
+
 function executeMovement(input) {
   console.log(input);
-  // get current location (TODO: from array instead of from doc?)
-  // let location = document.getElementById("playerHead").parentElement;
+  // get current location from array instead of doc)
   let location = playerSpaces[0];
 
-  // console.log(location);
   // get destination based on direction
   let destination;
   if (input == "up") {
@@ -38,11 +48,6 @@ function executeMovement(input) {
     destination = parseInt(location.getAttribute("xloc")) + 1;
   }
   // console.log(destination);
-  // determine if destination is valid
-  if (destination < 0 || destination >= fieldSize) {
-    console.log("invalid move");
-    return;
-  }
 
   // complete movement if valid
   let newLocation;
@@ -56,6 +61,13 @@ function executeMovement(input) {
     );
   }
 
+  // Determine if destination is valid, abort if not
+  if (isMoveOffBoard(newLocation) || isMoveThroughSelf(newLocation)) {
+    console.log("Invalid move");
+    // TODO: Trigger game over
+    return;
+  }
+
   // console.log(newLocation);
   playerSpaces.unshift(newLocation);
   location.removeChild(playerHead);
@@ -66,25 +78,16 @@ function executeMovement(input) {
 
   for (let i = 1; i < playerSpaces.length; i++) {
     let segment = playerSpaces[i].children[0];
-    console.log(segment);
     if (segment) {
       playerSpaces[i].removeChild(segment);
-      console.log("child removed!")
     }
   }
 
   playerSpaces.pop();
 
-  // newLocation.appendChild(playerHead);
-  console.log(playerSpaces);
-  console.log(playerSpaces[playerSpaces.length - 1]);
-
   for (let i = 1; i < playerSpaces.length; i++) {
     playerSpaces[i].appendChild(addTailSegment());
   }
-  // playerSpaces[playerSpaces.length - 1].removeChild(
-  //   document.getElementsByClassName("playerSegment")[0],
-  // );
 
   checkFruitGet(newLocation);
 }
