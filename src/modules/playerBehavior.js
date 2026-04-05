@@ -3,8 +3,10 @@ playerHead.setAttribute("id", "playerHead");
 let playerSegment = document.createElement("div");
 playerSegment.setAttribute("class", "playerSegment");
 
-let playerLength = 2
-let playerSpaces = new Array(playerLength)
+// let playerLength = 2
+// let playerSpaces = new Array(playerLength)
+let playerSpaces = new Array()
+
 
 let playerScore = 0;
 
