@@ -4,6 +4,7 @@ import { fieldSize } from "./modules/gameVariables";
 import {
   playerHead,
   playerSegment,
+  addTailSegment,
   playerSpaces,
   playerScore,
 } from "./modules/playerBehavior";
@@ -77,10 +78,18 @@ scoreboard.textContent = playerScore;
 
 let center = getCenterField(fieldSize);
 let startingCell = document.getElementById(`${center}, ${center}`);
-let tailCell = document.getElementById(`${center}, ${center - 1}`);
-playerSpaces.push(startingCell, tailCell);
-console.log(playerSpaces);
+playerSpaces.push(startingCell);
 startingCell.appendChild(playerHead);
-tailCell.appendChild(playerSegment);
+
+// Length movement test
+let bodyLength = 5;
+for (let i = 1; i < bodyLength; i++) {
+  let tailCell = document.getElementById(`${center}, ${center - i}`);
+  playerSpaces.push(tailCell);
+  // console.log(tailCell);
+  tailCell.appendChild(addTailSegment());
+}
+
+console.log(playerSpaces);
 
 spawnFruit();

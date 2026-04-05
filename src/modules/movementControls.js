@@ -1,5 +1,10 @@
 import { fieldSize } from "./gameVariables";
-import { playerHead, playerSegment, playerSpaces } from "./playerBehavior";
+import {
+  playerHead,
+  addTailSegment,
+  playerSegment,
+  playerSpaces,
+} from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 
 function getMovement(e) {
@@ -53,15 +58,34 @@ function executeMovement(input) {
 
   // console.log(newLocation);
   playerSpaces.unshift(newLocation);
+  location.removeChild(playerHead);
+  // location.appendChild(addTailSegment());
+
+  playerSpaces[0].appendChild(playerHead);
+  // console.log(playerSpaces);
+
+  for (let i = 1; i < playerSpaces.length; i++) {
+    let segment = playerSpaces[i].children[0];
+    console.log(segment);
+    if (segment) {
+      playerSpaces[i].removeChild(segment);
+      console.log("child removed!")
+    }
+  }
+
   playerSpaces.pop();
 
-  location.removeChild(playerHead);
-  newLocation.appendChild(playerHead);
+  // newLocation.appendChild(playerHead);
   console.log(playerSpaces);
+  console.log(playerSpaces[playerSpaces.length - 1]);
 
-  for (let i = 0; i < playerSpaces.length; i++) {
-    playerSpaces[i].appendChild(playerSegment);
+  for (let i = 1; i < playerSpaces.length; i++) {
+    playerSpaces[i].appendChild(addTailSegment());
   }
+  // playerSpaces[playerSpaces.length - 1].removeChild(
+  //   document.getElementsByClassName("playerSegment")[0],
+  // );
+
   checkFruitGet(newLocation);
 }
 
