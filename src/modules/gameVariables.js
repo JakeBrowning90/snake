@@ -2,9 +2,10 @@
 //   console.log("Hello world");
 // };
 
-let fieldSize = 7;
+// Adjust dimensions of play area
+let fieldSize = 15;
 
-//Starting length
+// Starting length
 let bodyLength = 3;
 
 

@@ -3,7 +3,6 @@ import "./styles/style.css";
 import { fieldSize, bodyLength } from "./modules/gameVariables";
 import {
   playerHead,
-  playerSegment,
   addTailSegment,
   playerSpaces,
   playerScore,
