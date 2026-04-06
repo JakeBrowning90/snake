@@ -8,8 +8,10 @@ function checkFruitGet(newLocation) {
     // Add to score
     increaseScore(1);
     scoreboard.textContent = playerScore;
+    // Increase player length
     // Spawn new fruit
     spawnFruit();
+    return true;
   }
 }
 

@@ -70,12 +70,15 @@ function executeMovement(input) {
     return;
   }
 
+  checkFruitGet(newLocation);
+
   // Add space to start of array
   playerSpaces.unshift(newLocation);
   // Remove head from current location
   location.removeChild(playerHead);
+  //if checkFr
 
-  // Remove all tail semgments from their cells
+  // Remove all tail segments from their cells
   for (let i = 1; i < playerSpaces.length; i++) {
     let segment = playerSpaces[i].children[0];
     if (segment) {
@@ -91,7 +94,7 @@ function executeMovement(input) {
     playerSpaces[i].appendChild(addTailSegment());
   }
 
-  checkFruitGet(newLocation);
+  // checkFruitGet(newLocation);
 }
 
 export { getMovement };
