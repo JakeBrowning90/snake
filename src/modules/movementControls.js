@@ -26,7 +26,9 @@ function isMoveOffBoard(destination) {
 }
 
 function isMoveThroughSelf(destination) {
-  if (playerSpaces.includes(destination)) {
+  // Head can move into space occupied by end of tail, as tail is about to move
+  let invalidSpaces = playerSpaces.slice(0, -1);
+  if (invalidSpaces.includes(destination)) {
     return true;
   }
 }
@@ -68,23 +70,23 @@ function executeMovement(input) {
     return;
   }
 
-  // console.log(newLocation);
+  // Add space to start of array
   playerSpaces.unshift(newLocation);
+  // Remove head from current location
   location.removeChild(playerHead);
-  // location.appendChild(addTailSegment());
 
-  playerSpaces[0].appendChild(playerHead);
-  // console.log(playerSpaces);
-
+  // Remove all tail semgments from their cells
   for (let i = 1; i < playerSpaces.length; i++) {
     let segment = playerSpaces[i].children[0];
     if (segment) {
       playerSpaces[i].removeChild(segment);
     }
   }
-
+  // Remove end of tail
   playerSpaces.pop();
-
+  // Add head to new location
+  playerSpaces[0].appendChild(playerHead);
+  // Add tail segments to new spaces
   for (let i = 1; i < playerSpaces.length; i++) {
     playerSpaces[i].appendChild(addTailSegment());
   }

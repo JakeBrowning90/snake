@@ -5,7 +5,7 @@ let playerSegment = document.createElement("div");
 playerSegment.setAttribute("class", "playerSegment");
 
 //Starting length
-let bodyLength = 4;
+let bodyLength = 6;
 
 function addTailSegment() {
   let playerSegment = document.createElement("div");
