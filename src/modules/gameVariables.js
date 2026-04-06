@@ -4,4 +4,8 @@
 
 let fieldSize = 15;
 
-export { fieldSize };
+//Starting length
+let bodyLength = 3;
+
+
+export { fieldSize, bodyLength };

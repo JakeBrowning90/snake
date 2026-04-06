@@ -70,13 +70,14 @@ function executeMovement(input) {
     return;
   }
 
-  checkFruitGet(newLocation);
-
   // Add space to start of array
   playerSpaces.unshift(newLocation);
   // Remove head from current location
   location.removeChild(playerHead);
-  //if checkFr
+  // if (checkFruitGet(newLocation)) {
+  //   playerSpaces.splice(1, 0, location);
+  // } else {
+  // }
 
   // Remove all tail segments from their cells
   for (let i = 1; i < playerSpaces.length; i++) {
@@ -85,8 +86,11 @@ function executeMovement(input) {
       playerSpaces[i].removeChild(segment);
     }
   }
-  // Remove end of tail
-  playerSpaces.pop();
+  if (!checkFruitGet(newLocation)) {
+    // Remove end of tail
+    playerSpaces.pop();
+  }
+
   // Add head to new location
   playerSpaces[0].appendChild(playerHead);
   // Add tail segments to new spaces

@@ -4,8 +4,6 @@ playerHead.setAttribute("id", "playerHead");
 let playerSegment = document.createElement("div");
 playerSegment.setAttribute("class", "playerSegment");
 
-//Starting length
-let bodyLength = 6;
 
 function addTailSegment() {
   let playerSegment = document.createElement("div");
@@ -23,4 +21,4 @@ function increaseScore(x) {
   playerScore = playerScore + x;
 }
 
-export { playerHead, playerSegment, bodyLength, addTailSegment,playerSpaces, playerScore, increaseScore };
+export { playerHead, playerSegment, addTailSegment,playerSpaces, playerScore, increaseScore };

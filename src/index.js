@@ -1,10 +1,9 @@
 import "./styles/style.css";
 // import { functionName } from "./modules/xFuncModTemplate";
-import { fieldSize } from "./modules/gameVariables";
+import { fieldSize, bodyLength } from "./modules/gameVariables";
 import {
   playerHead,
   playerSegment,
-  bodyLength,
   addTailSegment,
   playerSpaces,
   playerScore,
