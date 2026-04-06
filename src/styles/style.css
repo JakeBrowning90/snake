@@ -54,6 +54,27 @@
 
 #playerHead {
   background-color: rgb(47, 177, 49);
+  width: 99%;
+  border: 0;
+
+  border-radius: 0;
+
+  /* border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 75px solid rgb(47, 177, 49); */
+}
+
+.facingUp {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.facingDown {
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+.facingLeft {
+  clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+}
+.facingRight {
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
 .playerSegment {

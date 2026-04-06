@@ -2,6 +2,7 @@ import { fieldSize } from "./gameVariables";
 import {
   playerHead,
   addTailSegment,
+  rotateHead,
   playerSegment,
   playerSpaces,
 } from "./playerBehavior";
@@ -34,7 +35,7 @@ function isMoveThroughSelf(destination) {
 }
 
 function executeMovement(input) {
-  console.log(input);
+  // console.log(input);
   // get current location from array instead of doc)
   let location = playerSpaces[0];
 
@@ -93,6 +94,10 @@ function executeMovement(input) {
 
   // Add head to new location
   playerSpaces[0].appendChild(playerHead);
+
+  // Orient player head according to movement
+  rotateHead(input);
+
   // Add tail segments to new spaces
   for (let i = 1; i < playerSpaces.length; i++) {
     playerSpaces[i].appendChild(addTailSegment());

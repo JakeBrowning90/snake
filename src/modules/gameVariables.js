@@ -2,7 +2,7 @@
 //   console.log("Hello world");
 // };
 
-let fieldSize = 15;
+let fieldSize = 7;
 
 //Starting length
 let bodyLength = 3;
