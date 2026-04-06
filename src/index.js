@@ -4,6 +4,7 @@ import { fieldSize } from "./modules/gameVariables";
 import {
   playerHead,
   playerSegment,
+  bodyLength,
   addTailSegment,
   playerSpaces,
   playerScore,
@@ -82,7 +83,7 @@ playerSpaces.push(startingCell);
 startingCell.appendChild(playerHead);
 
 // MANUAL LENGTH SETTING FOR TESTING
-let bodyLength = 7;
+// let bodyLength = 7;
 for (let i = 1; i < bodyLength; i++) {
   let tailCell = document.getElementById(`${center}, ${center - i}`);
   playerSpaces.push(tailCell);
