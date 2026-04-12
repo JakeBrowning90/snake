@@ -9,13 +9,25 @@ import {
 import { checkFruitGet } from "./fruitBehavior";
 
 function getMovement(e) {
-  if (e.code == "KeyW" || e.code == "ArrowUp") {
+  if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
     executeMovement("up");
-  } else if (e.code == "KeyA" || e.code == "ArrowLeft") {
+  } else if (
+    e.code == "KeyA" ||
+    e.code == "ArrowLeft" ||
+    e.srcElement.id == "TouchLeft"
+  ) {
     executeMovement("left");
-  } else if (e.code == "KeyS" || e.code == "ArrowDown") {
+  } else if (
+    e.code == "KeyS" ||
+    e.code == "ArrowDown" ||
+    e.srcElement.id == "TouchDown"
+  ) {
     executeMovement("down");
-  } else if (e.code == "KeyD" || e.code == "ArrowRight") {
+  } else if (
+    e.code == "KeyD" ||
+    e.code == "ArrowRight" ||
+    e.srcElement.id == "TouchRight"
+  ) {
     executeMovement("right");
   }
 }

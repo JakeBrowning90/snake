@@ -31,6 +31,12 @@ document.addEventListener("keydown", hightlightKey);
 document.addEventListener("keyup", unhightlightKey);
 document.addEventListener("keydown", getMovement);
 
+let touchControls = document.getElementsByClassName("touchControl");
+console.log(touchControls);
+for (const button of touchControls) {
+  button.addEventListener("click", getMovement);
+}
+
 function drawPlayfield(fieldSize) {
   let playField = document.getElementById("playField");
 
