@@ -12,6 +12,24 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
+.touchPad {
+  border: 1px solid black;
+  width: 150px;
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+#TouchUp,
+#TouchDown {
+  grid-column: 2/3;
+}
+#TouchLeft {
+  grid-column: 1/2;
+}
+#TouchRight {
+  grid-column: 3/4;
+}
 
 .activeKey {
   background-color: greenyellow;

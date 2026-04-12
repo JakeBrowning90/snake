@@ -6,8 +6,6 @@
 
 ## Challenges/To-dos
 * Restructure with modules
-* Grow snake logic
-* Collision with walls and self
 * Start game prompt, Game over condition, and reset option
 * Automatic forward movement
 * Speed options?
