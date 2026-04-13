@@ -8,6 +8,12 @@ import {
 } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 
+let touchControls = document.getElementsByClassName("touchControl");
+console.log(touchControls);
+for (const button of touchControls) {
+  button.addEventListener("click", getMovement);
+}
+
 function getMovement(e) {
   if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
     executeMovement("up");

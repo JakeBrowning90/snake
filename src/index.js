@@ -9,6 +9,7 @@ import {
 } from "./modules/playerBehavior";
 import { spawnFruit } from "./modules/fruitBehavior";
 import { getMovement } from "./modules/movementControls";
+import { drawPlayfield, getCenterField } from "./modules/setupPlayfield";
 
 function hightlightKey(e) {
   // console.log(`${e.code}`);
@@ -30,51 +31,6 @@ function unhightlightKey(e) {
 document.addEventListener("keydown", hightlightKey);
 document.addEventListener("keyup", unhightlightKey);
 document.addEventListener("keydown", getMovement);
-
-let touchControls = document.getElementsByClassName("touchControl");
-console.log(touchControls);
-for (const button of touchControls) {
-  button.addEventListener("click", getMovement);
-}
-
-function drawPlayfield(fieldSize) {
-  let playField = document.getElementById("playField");
-
-  playField.style.gridTemplateColumns = ` repeat(${fieldSize}, 1fr)`;
-
-  for (let i = 0; i < fieldSize; i++) {
-    let fieldRow = document.createElement("div");
-    fieldRow.classList.add("fieldCol");
-    fieldRow.style.gridTemplateRows = ` repeat(${fieldSize}, 1fr)`;
-
-    for (let j = fieldSize - 1; j > -1; j--) {
-      let playCell = document.createElement("div");
-      playCell.classList.add("playCell");
-      let x = document.createAttribute("xLoc");
-      x.value = i;
-      playCell.setAttributeNode(x);
-      let y = document.createAttribute("yLoc");
-      y.value = j;
-      playCell.setAttributeNode(y);
-      playCell.setAttribute("id", `${i}, ${j}`);
-      // FOR TESTING: show ID in cell
-      // playCell.textContent = playCell.id;
-      fieldRow.appendChild(playCell);
-    }
-
-    playField.appendChild(fieldRow);
-  }
-}
-
-function getCenterField(fieldSize) {
-  let center;
-  if (fieldSize % 2 == 0) {
-    center = fieldSize / 2;
-  } else {
-    center = (fieldSize - 1) / 2;
-  }
-  return center;
-}
 
 drawPlayfield(fieldSize);
 
