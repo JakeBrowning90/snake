@@ -1,7 +1,9 @@
 import { fieldSize } from "./gameVariables";
 
 function drawPlayfield(fieldSize) {
-  let playField = document.getElementById("playField");
+  // let playField = document.getElementById("playField");
+  let playField = document.createElement("div");
+  playField.setAttribute("id", "playField");
 
   playField.style.gridTemplateColumns = ` repeat(${fieldSize}, 1fr)`;
 
@@ -27,6 +29,8 @@ function drawPlayfield(fieldSize) {
 
     playField.appendChild(fieldRow);
   }
+  let main = document.getElementsByTagName("main")[0];
+  main.appendChild(playField);
 }
 
 function getCenterField(fieldSize) {

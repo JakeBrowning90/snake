@@ -24,25 +24,44 @@ header {
   background-color: rgb(186, 205, 248);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.touchPad,
 .keyPad {
-  width: 150px;
-  height: 75px;
   border: 1px solid black;
+  justify-self: center;
+  align-self: center;
+  width: 150px;
+}
+
+.keyPad {
+  height: 75px;
   padding: 2px;
   gap: 2px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
+
+#keyUp {
+  grid-column: 2 / 3;
+}
+
+#keyLeft {
+  grid-column: 1 / 2;
+}
+
 .touchPad {
-  justify-self: center;
-  border: 1px solid black;
-  width: 150px;
   aspect-ratio: 1/1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
+
 #TouchUp,
 #TouchDown {
   grid-column: 2/3;

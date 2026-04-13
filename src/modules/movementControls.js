@@ -8,10 +8,12 @@ import {
 } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 
-let touchControls = document.getElementsByClassName("touchControl");
-console.log(touchControls);
-for (const button of touchControls) {
-  button.addEventListener("click", getMovement);
+function mapTouchControls() {
+  let touchControls = document.getElementsByClassName("touchControl");
+  for (const button of touchControls) {
+    console.log(button);
+    button.addEventListener("click", getMovement);
+  }
 }
 
 function getMovement(e) {
@@ -124,4 +126,4 @@ function executeMovement(input) {
   // checkFruitGet(newLocation);
 }
 
-export { getMovement };
+export { mapTouchControls, getMovement };

@@ -8,11 +8,13 @@ import {
   playerScore,
 } from "./modules/playerBehavior";
 import { spawnFruit } from "./modules/fruitBehavior";
-import { getMovement } from "./modules/movementControls";
+import { drawScoreboard } from "./modules/drawScoreboard";
 import { drawPlayfield, getCenterField } from "./modules/setupPlayfield";
+import { drawTouchControls, drawKeyControls } from "./modules/drawControllers";
+import { mapTouchControls, getMovement } from "./modules/movementControls";
 
 function hightlightKey(e) {
-  // console.log(`${e.code}`);
+  console.log(`${e.code}`);
   let targetedKey = document.getElementById(e.code);
   // Don't throw errors for unbound keys
   if (targetedKey) {
@@ -28,11 +30,17 @@ function unhightlightKey(e) {
   }
 }
 
+drawScoreboard();
+drawPlayfield(fieldSize);
+drawTouchControls();
+drawKeyControls();
+mapTouchControls();
+
+
 document.addEventListener("keydown", hightlightKey);
 document.addEventListener("keyup", unhightlightKey);
 document.addEventListener("keydown", getMovement);
 
-drawPlayfield(fieldSize);
 
 let scoreboard = document.getElementById("scoreboard");
 scoreboard.textContent = playerScore;
