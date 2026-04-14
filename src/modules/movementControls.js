@@ -12,8 +12,43 @@ import { triggerGameOver } from "./drawGameOver";
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
   for (const button of touchControls) {
-    console.log(button);
     button.addEventListener("click", getMovement);
+  }
+}
+
+function mapKeypadControls() {
+  document.addEventListener("keydown", highlightKeyDisplay);
+  document.addEventListener("keyup", unhighlightKeyDisplay);
+  document.addEventListener("keydown", getMovement);
+}
+
+function highlightKeyDisplay(e) {
+  let targetedKey = translateKeystrokeToElementId(e.code);
+  // Don't throw errors for unbound keys
+  if (targetedKey) {
+    targetedKey.classList.add("activeKey");
+  }
+}
+
+function unhighlightKeyDisplay(e) {
+  let targetedKey = translateKeystrokeToElementId(e.code);
+  // Don't throw errors for unbound keys
+  if (targetedKey) {
+    targetedKey.classList.remove("activeKey");
+  }
+}
+
+function translateKeystrokeToElementId(code) {
+  if (code == "KeyW" || code == "ArrowUp") {
+    return document.getElementById("keyUp");
+  } else if (code == "KeyA" || code == "ArrowLeft") {
+    return document.getElementById("keyLeft");
+  } else if (code == "KeyS" || code == "ArrowDown") {
+    return document.getElementById("keyDown");
+  } else if (code == "KeyD" || code == "ArrowRight") {
+    return document.getElementById("keyRight");
+  } else {
+    return;
   }
 }
 
@@ -136,4 +171,4 @@ function executeMovement(input) {
   // checkFruitGet(newLocation);
 }
 
-export { mapTouchControls, getMovement };
+export { mapTouchControls, mapKeypadControls, getMovement };

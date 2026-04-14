@@ -1,4 +1,5 @@
-import { fieldSize } from "./gameVariables";
+import { fieldSize, bodyLength } from "./gameVariables";
+import { playerHead, addTailSegment, playerSpaces } from "./playerBehavior";
 
 function drawPlayfield(fieldSize) {
   // let playField = document.getElementById("playField");
@@ -33,6 +34,19 @@ function drawPlayfield(fieldSize) {
   main.appendChild(playField);
 }
 
+function positionPlayerStart() {
+  let center = getCenterField(fieldSize);
+  let startingCell = document.getElementById(`${center}, ${center}`);
+  playerSpaces.push(startingCell);
+  startingCell.appendChild(playerHead);
+  for (let i = 1; i < bodyLength; i++) {
+    let tailCell = document.getElementById(`${center}, ${center - i}`);
+    playerSpaces.push(tailCell);
+    // console.log(tailCell);
+    tailCell.appendChild(addTailSegment());
+  }
+}
+
 function getCenterField(fieldSize) {
   let center;
   if (fieldSize % 2 == 0) {
@@ -43,4 +57,4 @@ function getCenterField(fieldSize) {
   return center;
 }
 
-export { drawPlayfield, getCenterField };
+export { drawPlayfield, positionPlayerStart, getCenterField };
