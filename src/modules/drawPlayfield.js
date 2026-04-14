@@ -1,5 +1,10 @@
 import { fieldSize, bodyLength } from "./gameVariables";
-import { playerHead, addTailSegment, playerSpaces } from "./playerBehavior";
+import {
+  playerHead,
+  addTailSegment,
+  playerSpaces,
+  rotateHead,
+} from "./playerBehavior";
 
 function drawPlayfield(fieldSize) {
   // let playField = document.getElementById("playField");
@@ -39,6 +44,7 @@ function positionPlayerStart() {
   let startingCell = document.getElementById(`${center}, ${center}`);
   playerSpaces.push(startingCell);
   startingCell.appendChild(playerHead);
+  rotateHead("up");
   for (let i = 1; i < bodyLength; i++) {
     let tailCell = document.getElementById(`${center}, ${center - i}`);
     playerSpaces.push(tailCell);

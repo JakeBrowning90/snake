@@ -1,6 +1,6 @@
 let playerHead = document.createElement("div");
 playerHead.setAttribute("id", "playerHead");
-playerHead.classList.add("facingUp");
+// playerHead.classList.add("facingUp");
 
 // let playerSegment = document.createElement("div");
 // playerSegment.setAttribute("class", "playerSegment");
@@ -28,6 +28,10 @@ function rotateHead(direction) {
 // let playerSpaces = new Array(playerLength)
 let playerSpaces = new Array();
 
+function resetPlayerSpaces() {
+  playerSpaces = new Array();
+}
+
 let playerScore = 0;
 
 function resetScore() {
@@ -44,6 +48,7 @@ export {
   addTailSegment,
   rotateHead,
   playerSpaces,
+  resetPlayerSpaces,
   playerScore,
   resetScore,
   increaseScore,

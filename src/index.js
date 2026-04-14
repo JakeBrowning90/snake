@@ -8,7 +8,7 @@ import {
   playerScore,
 } from "./modules/playerBehavior";
 import { spawnFruit } from "./modules/fruitBehavior";
-import { drawScoreboard } from "./modules/drawScoreboard";
+import { drawScoreboard, updateScoreboard } from "./modules/drawScoreboard";
 import {
   drawPlayfield,
   positionPlayerStart,
@@ -21,17 +21,21 @@ import {
   getMovement,
 } from "./modules/movementControls";
 
-drawScoreboard();
-drawPlayfield(fieldSize);
-positionPlayerStart();
-drawTouchControls();
-drawKeyControls();
-mapTouchControls();
-mapKeypadControls();
+import { drawNewGame } from "./modules/drawNewGame";
 
-let scoreboard = document.getElementById("scoreboard");
-scoreboard.textContent = playerScore;
+drawNewGame();
+// drawScoreboard();
+// updateScoreboard();
+// drawPlayfield(fieldSize);
+// positionPlayerStart();
+// drawTouchControls();
+// drawKeyControls();
+// mapTouchControls();
+// mapKeypadControls();
 
-console.log(playerSpaces);
- 
-spawnFruit();
+// // let scoreboard = document.getElementById("scoreboard");
+// // scoreboard.textContent = playerScore;
+
+// console.log(playerSpaces);
+
+// spawnFruit();

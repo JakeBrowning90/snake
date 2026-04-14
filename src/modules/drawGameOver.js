@@ -1,14 +1,15 @@
 import { playerScore } from "./playerBehavior";
 import { getMovement } from "./movementControls";
-import { resetScore } from "./playerBehavior";
+import { resetScore, resetPlayerSpaces } from "./playerBehavior";
 import { updateScoreboard } from "./drawScoreboard";
+import { drawNewGame } from "./drawNewGame";
 
 function triggerGameOver() {
   // Disable controls
   document.removeEventListener("keydown", getMovement);
   let touchControls = document.getElementsByClassName("touchControl");
   for (const button of touchControls) {
-    console.log(button);
+    // console.log(button);
     button.removeEventListener("click", getMovement);
   }
 
@@ -27,7 +28,11 @@ function triggerGameOver() {
 function resetGame() {
   console.log("Reset!");
   resetScore();
-  updateScoreboard();
+  resetPlayerSpaces();
+  let main = document.getElementsByTagName("main")[0];
+  main.replaceChildren();
+  // updateScoreboard();
+  drawNewGame();
 }
 
 export { triggerGameOver };
