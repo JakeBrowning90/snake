@@ -84,9 +84,15 @@ function executeMovement(input) {
     );
   }
 
-  // Determine if destination is valid, abort if not
+  // Prevent movement if trying to immediately reverse into last occupied space
+  if (newLocation == playerSpaces[1]) {
+    // console.log("Can't reverse!");
+    return;
+  }
+
+  // Determine if destination is triggers GAME OVER, trigger if so
   if (isMoveOffBoard(newLocation) || isMoveThroughSelf(newLocation)) {
-    console.log("Invalid move");
+    console.log("Game Over!");
     // TODO: Trigger game over
     return;
   }
