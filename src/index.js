@@ -33,5 +33,5 @@ let scoreboard = document.getElementById("scoreboard");
 scoreboard.textContent = playerScore;
 
 console.log(playerSpaces);
-
+ 
 spawnFruit();
