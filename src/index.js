@@ -13,20 +13,52 @@ import { drawPlayfield, getCenterField } from "./modules/setupPlayfield";
 import { drawTouchControls, drawKeyControls } from "./modules/drawControllers";
 import { mapTouchControls, getMovement } from "./modules/movementControls";
 
-function hightlightKey(e) {
-  console.log(`${e.code}`);
-  let targetedKey = document.getElementById(e.code);
+// function highlightKey(e) {
+//   console.log(`${e.code}`);
+//   let targetedKey = document.getElementById(e.code);
+//   console.log(targetedKey);
+
+//   // Don't throw errors for unbound keys
+//   if (targetedKey) {
+//     targetedKey.classList.add("activeKey");
+//   }
+// }
+
+// function unhighlightKey(e) {
+//   // console.log(`${e.code}`);
+//   let targetedKey = document.getElementById(e.code);
+//   if (targetedKey) {
+//     targetedKey.classList.remove("activeKey");
+//   }
+// }
+
+function highlightKeyDisplay(e) {
+  let targetedKey = translateKeystrokeToElementId(e.code);
   // Don't throw errors for unbound keys
   if (targetedKey) {
     targetedKey.classList.add("activeKey");
   }
 }
 
-function unhightlightKey(e) {
-  // console.log(`${e.code}`);
-  let targetedKey = document.getElementById(e.code);
+function unhighlightKeyDisplay(e) {
+  let targetedKey = translateKeystrokeToElementId(e.code);
+  // Don't throw errors for unbound keys
   if (targetedKey) {
     targetedKey.classList.remove("activeKey");
+  }
+}
+
+function translateKeystrokeToElementId(code) {
+  if (code == "KeyW" || code == "ArrowUp") {
+    return document.getElementById("keyUp");
+  } else if (code == "KeyA" || code == "ArrowLeft") {
+    return document.getElementById("keyLeft");
+  } else if (code == "KeyS" || code == "ArrowDown") {
+    return document.getElementById("keyDown");
+  } else if (code == "KeyD" || code == "ArrowRight") {
+    return document.getElementById("keyRight");
+  } else {
+    return;
   }
 }
 
@@ -36,11 +68,9 @@ drawTouchControls();
 drawKeyControls();
 mapTouchControls();
 
-
-document.addEventListener("keydown", hightlightKey);
-document.addEventListener("keyup", unhightlightKey);
+document.addEventListener("keydown", highlightKeyDisplay);
+document.addEventListener("keyup", unhighlightKeyDisplay);
 document.addEventListener("keydown", getMovement);
-
 
 let scoreboard = document.getElementById("scoreboard");
 scoreboard.textContent = playerScore;
