@@ -24,18 +24,8 @@ import {
 import { drawNewGame } from "./modules/drawNewGame";
 
 drawNewGame();
-// drawScoreboard();
-// updateScoreboard();
-// drawPlayfield(fieldSize);
-// positionPlayerStart();
-// drawTouchControls();
-// drawKeyControls();
-// mapTouchControls();
-// mapKeypadControls();
+// function timedLoop(){
+//  console.log("move")
+// }
 
-// // let scoreboard = document.getElementById("scoreboard");
-// // scoreboard.textContent = playerScore;
-
-// console.log(playerSpaces);
-
-// spawnFruit();
+// setInterval(timedLoop, 1000)

@@ -53,6 +53,7 @@ function translateKeystrokeToElementId(code) {
 }
 
 function getMovement(e) {
+  // console.log("Moving");
   if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
     executeMovement("up");
   } else if (
