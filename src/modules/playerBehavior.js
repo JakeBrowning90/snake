@@ -30,6 +30,10 @@ let playerSpaces = new Array();
 
 let playerScore = 0;
 
+function resetScore() {
+  playerScore = 0;
+}
+
 function increaseScore(x) {
   playerScore = playerScore + x;
 }
@@ -41,5 +45,6 @@ export {
   rotateHead,
   playerSpaces,
   playerScore,
+  resetScore,
   increaseScore,
 };

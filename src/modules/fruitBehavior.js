@@ -1,5 +1,6 @@
 import { fieldSize } from "./gameVariables";
 import { playerScore, increaseScore, playerSpaces } from "./playerBehavior";
+import { updateScoreboard } from "./drawScoreboard";
 
 function checkFruitGet(newLocation) {
   if (newLocation.querySelector(".fruit")) {
@@ -7,7 +8,8 @@ function checkFruitGet(newLocation) {
     newLocation.removeChild(newLocation.querySelector(".fruit"));
     // Add to score
     increaseScore(1);
-    scoreboard.textContent = playerScore;
+    updateScoreboard();
+    // scoreboard.textContent = playerScore;
     // Increase player length
     // Spawn new fruit
     spawnFruit();

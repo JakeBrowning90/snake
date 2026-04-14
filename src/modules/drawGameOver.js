@@ -1,8 +1,9 @@
 import { playerScore } from "./playerBehavior";
 import { getMovement } from "./movementControls";
+import { resetScore } from "./playerBehavior";
+import { updateScoreboard } from "./drawScoreboard";
 
 function triggerGameOver() {
-  console.log("Game Over!");
   // Disable controls
   document.removeEventListener("keydown", getMovement);
   let touchControls = document.getElementsByClassName("touchControl");
@@ -14,9 +15,19 @@ function triggerGameOver() {
   // Display score and reset button
   let gameOverDiv = document.createElement("div");
   gameOverDiv.textContent = "Game Over!";
+  let resetButton = document.createElement("button");
+  resetButton.textContent = "Try again";
+  resetButton.addEventListener("click", resetGame);
+  gameOverDiv.appendChild(resetButton);
   let scoreboard = document.getElementById("scoreboard");
   scoreboard.appendChild(gameOverDiv);
-  // On reset, clear score and window, start new game
+}
+
+// On reset, clear score and window, start new game
+function resetGame() {
+  console.log("Reset!");
+  resetScore();
+  updateScoreboard();
 }
 
 export { triggerGameOver };

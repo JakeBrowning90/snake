@@ -1,3 +1,5 @@
+import { playerScore } from "./playerBehavior";
+
 function drawScoreboard() {
   let scoreboard = document.createElement("span");
   scoreboard.setAttribute("id", "scoreboard");
@@ -5,4 +7,8 @@ function drawScoreboard() {
   main.appendChild(scoreboard);
 }
 
-export { drawScoreboard };
+function updateScoreboard() {
+  scoreboard.textContent = playerScore;
+}
+
+export { drawScoreboard, updateScoreboard };
