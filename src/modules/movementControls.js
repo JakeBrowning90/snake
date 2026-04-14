@@ -7,6 +7,7 @@ import {
   playerSpaces,
 } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
+import { triggerGameOver } from "./drawGameOver";
 
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
@@ -90,10 +91,13 @@ function executeMovement(input) {
     return;
   }
 
+  // Orient player head according to movement,
+  // Show before checks to indicate failed move
+  rotateHead(input);
+
   // Determine if destination is triggers GAME OVER, trigger if so
   if (isMoveOffBoard(newLocation) || isMoveThroughSelf(newLocation)) {
-    console.log("Game Over!");
-    // TODO: Trigger game over
+    triggerGameOver();
     return;
   }
 
@@ -121,8 +125,8 @@ function executeMovement(input) {
   // Add head to new location
   playerSpaces[0].appendChild(playerHead);
 
-  // Orient player head according to movement
-  rotateHead(input);
+  // // Orient player head according to movement
+  // rotateHead(input);
 
   // Add tail segments to new spaces
   for (let i = 1; i < playerSpaces.length; i++) {
