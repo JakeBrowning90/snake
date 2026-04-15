@@ -172,4 +172,4 @@ function executeMovement(input) {
   // checkFruitGet(newLocation);
 }
 
-export { mapTouchControls, mapKeypadControls, getMovement };
+export { mapTouchControls, mapKeypadControls, getMovement, executeMovement };

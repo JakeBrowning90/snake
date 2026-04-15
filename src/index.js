@@ -19,6 +19,7 @@ import {
   mapTouchControls,
   mapKeypadControls,
   getMovement,
+  executeMovement
 } from "./modules/movementControls";
 
 import { drawNewGame } from "./modules/drawNewGame";
@@ -28,4 +29,5 @@ drawNewGame();
 //  console.log("move")
 // }
 
-// setInterval(timedLoop, 1000)
+// setInterval(executeMovement, 1000, "up");
+// TODO: Set activeGame boolean and direction variable, change variable with input
