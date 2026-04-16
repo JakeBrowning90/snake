@@ -1,12 +1,17 @@
+import { gameActive, toggleGameState } from "./gameVariables";
 import { playerScore } from "./playerBehavior";
-import { getMovement } from "./movementControls";
+import { getMovement, runInput } from "./movementControls";
 import { resetScore, resetPlayerSpaces } from "./playerBehavior";
 import { updateScoreboard } from "./drawScoreboard";
 import { drawNewGame } from "./drawNewGame";
 
 function triggerGameOver() {
+  // Switch game state to inactive, ending auto movement
+  toggleGameState(false);
   // Disable controls
   document.removeEventListener("keydown", getMovement);
+  document.removeEventListener("keydown", runInput);
+
   let touchControls = document.getElementsByClassName("touchControl");
   for (const button of touchControls) {
     // console.log(button);

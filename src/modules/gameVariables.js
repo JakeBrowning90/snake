@@ -2,6 +2,13 @@
 //   console.log("Hello world");
 // };
 
+// Is game active or inactive
+let gameActive = false;
+function toggleGameState(bool) {
+  gameActive = bool;
+  console.log("Game active: " + gameActive);
+}
+
 // Adjust dimensions of play area
 let fieldSize = 15;
 
@@ -10,4 +17,4 @@ let bodyLength = 3;
 
 // TBA: Movement speed
 
-export { fieldSize, bodyLength };
+export { gameActive, toggleGameState, fieldSize, bodyLength };

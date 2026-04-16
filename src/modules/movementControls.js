@@ -1,4 +1,4 @@
-import { fieldSize } from "./gameVariables";
+import { gameActive, toggleGameState, fieldSize } from "./gameVariables";
 import {
   playerHead,
   addTailSegment,
@@ -20,6 +20,8 @@ function mapKeypadControls() {
   document.addEventListener("keydown", highlightKeyDisplay);
   document.addEventListener("keyup", unhighlightKeyDisplay);
   document.addEventListener("keydown", getMovement);
+  // Replace getMovement with runInput after testing
+  document.addEventListener("keydown", runInput);
 }
 
 function highlightKeyDisplay(e) {
@@ -49,6 +51,12 @@ function translateKeystrokeToElementId(code) {
     return document.getElementById("keyRight");
   } else {
     return;
+  }
+}
+
+function runInput(e) {
+  if (!gameActive) {
+    toggleGameState(true);
   }
 }
 
@@ -172,4 +180,10 @@ function executeMovement(input) {
   // checkFruitGet(newLocation);
 }
 
-export { mapTouchControls, mapKeypadControls, getMovement, executeMovement };
+export {
+  mapTouchControls,
+  mapKeypadControls,
+  getMovement,
+  runInput,
+  executeMovement,
+};
