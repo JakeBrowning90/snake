@@ -30,10 +30,5 @@ drawNewGame();
 //  console.log("move")
 // }
 
-while (gameActive) {
-  // console.log("moving...");
-  // setInterval(executeMovement, 1000, currentDirection);
-  setInterval(console.log("moving..."), 1000);
-}
 // setInterval(executeMovement, 1000, "up");
 // TODO: Set activeGame boolean and direction variable, change variable with input

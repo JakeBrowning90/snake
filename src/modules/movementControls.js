@@ -10,7 +10,7 @@ import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
 import { autoMovement } from "./intervalBehavior";
 
-let currentDirection = "";
+let direction = { current: null };
 
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
@@ -60,41 +60,40 @@ function translateKeystrokeToElementId(code) {
 function checkActiveGame() {
   if (!gameActive) {
     toggleGameState();
-
+    autoMovement();
     // setInterval(() => console.log("Active game"), 1000);
     // setInterval(() => executeMovement(), 1000, currentDirection);
   }
-  autoMovement();
+  // autoMovement();
 }
 
 function getMovement(e) {
   // clearInterval(currentMovement);
   if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
-    currentDirection = "up";
+    direction.current = "up";
   } else if (
     e.code == "KeyA" ||
     e.code == "ArrowLeft" ||
     e.srcElement.id == "TouchLeft"
   ) {
-    currentDirection = "left";
+    direction.current = "left";
   } else if (
     e.code == "KeyS" ||
     e.code == "ArrowDown" ||
     e.srcElement.id == "TouchDown"
   ) {
-    currentDirection = "down";
+    direction.current = "down";
   } else if (
     e.code == "KeyD" ||
     e.code == "ArrowRight" ||
     e.srcElement.id == "TouchRight"
   ) {
-    currentDirection = "right";
+    direction.current = "right";
   }
-  if (currentDirection) {
-    console.log("Input " + currentDirection);
+  if (direction.current) {
+    console.log("Input " + direction.current);
     checkActiveGame();
-    // executeMovement(currentDirection);
-    return;
+    // executeMovement( direction.current);
   }
 }
 
@@ -112,7 +111,8 @@ function isMoveThroughSelf(destination) {
   }
 }
 
-function executeMovement(input) {
+function executeMovement() {
+  let input = direction.current;
   // console.log("Attempting move " + input);
   // get current location from array instead of doc)
   let location = playerSpaces[0];
@@ -193,7 +193,7 @@ function executeMovement(input) {
 }
 
 export {
-  currentDirection,
+  direction,
   mapTouchControls,
   mapKeypadControls,
   getMovement,

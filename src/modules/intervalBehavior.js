@@ -1,12 +1,12 @@
 import { speed } from "./gameVariables";
-import { currentDirection, executeMovement } from "./movementControls";
+import { direction, executeMovement } from "./movementControls";
 
 let intervalId;
 
 function autoMovement() {
-  stopMovement();
-  console.log("Beginning auto-movement " + currentDirection);
-  intervalId ??= setInterval(executeMovement, speed, currentDirection);
+  // stopMovement();
+  console.log("Beginning auto-movement " + direction.current);
+  intervalId ??= setInterval(executeMovement, speed);
 }
 
 function stopMovement() {
