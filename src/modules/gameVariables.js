@@ -4,9 +4,13 @@
 
 // Is game active or inactive
 let gameActive = false;
-function toggleGameState(bool) {
-  gameActive = bool;
-  console.log("Game active: " + gameActive);
+function toggleGameState() {
+  if (gameActive) {
+    gameActive = false;
+  } else if (!gameActive) {
+    gameActive = true;
+  }
+  console.log("Game Active: " + gameActive);
 }
 
 // Adjust dimensions of play area

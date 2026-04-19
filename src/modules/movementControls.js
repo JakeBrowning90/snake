@@ -9,6 +9,8 @@ import {
 import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
 
+let currentDirection = "";
+
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
   for (const button of touchControls) {
@@ -19,9 +21,9 @@ function mapTouchControls() {
 function mapKeypadControls() {
   document.addEventListener("keydown", highlightKeyDisplay);
   document.addEventListener("keyup", unhighlightKeyDisplay);
+  document.addEventListener("keydown", triggerActiveGame);
   document.addEventListener("keydown", getMovement);
   // Replace getMovement with runInput after testing
-  document.addEventListener("keydown", runInput);
 }
 
 function highlightKeyDisplay(e) {
@@ -54,35 +56,50 @@ function translateKeystrokeToElementId(code) {
   }
 }
 
-function runInput(e) {
+function triggerActiveGame(e) {
   if (!gameActive) {
-    toggleGameState(true);
+    toggleGameState();
+    // while (gameActive) {
+    //   setInterval(() => executeMovement, 1000);
+    // }
   }
+  // else if (gameActive) {
+  //   currentDirection =
+  //   setInterval(executeMovement, 1000, currentDirection);
+  // }
+
+  // console.log(currentDirection);
 }
 
 function getMovement(e) {
   // console.log("Moving");
+  // let currentMovement = () =>
+  //   setInterval(executeMovement, 1000, currentDirection);
+
+  // clearInterval(currentMovement);
   if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
-    executeMovement("up");
+    currentDirection = "up";
   } else if (
     e.code == "KeyA" ||
     e.code == "ArrowLeft" ||
     e.srcElement.id == "TouchLeft"
   ) {
-    executeMovement("left");
+    currentDirection = "left";
   } else if (
     e.code == "KeyS" ||
     e.code == "ArrowDown" ||
     e.srcElement.id == "TouchDown"
   ) {
-    executeMovement("down");
+    currentDirection = "down";
   } else if (
     e.code == "KeyD" ||
     e.code == "ArrowRight" ||
     e.srcElement.id == "TouchRight"
   ) {
-    executeMovement("right");
+    currentDirection = "right";
   }
+  console.log("Input " + currentDirection);
+  executeMovement(currentDirection);
 }
 
 function isMoveOffBoard(destination) {
@@ -100,7 +117,6 @@ function isMoveThroughSelf(destination) {
 }
 
 function executeMovement(input) {
-  // console.log(input);
   // get current location from array instead of doc)
   let location = playerSpaces[0];
 
@@ -144,7 +160,8 @@ function executeMovement(input) {
     triggerGameOver();
     return;
   }
-
+  // Start of valid movement
+  console.log("Moving " + input);
   // Add space to start of array
   playerSpaces.unshift(newLocation);
   // Remove head from current location
@@ -181,9 +198,10 @@ function executeMovement(input) {
 }
 
 export {
+  currentDirection,
   mapTouchControls,
   mapKeypadControls,
   getMovement,
-  runInput,
+  triggerActiveGame,
   executeMovement,
 };
