@@ -4,10 +4,12 @@ import { getMovement, checkActiveGame } from "./movementControls";
 import { resetScore, resetPlayerSpaces } from "./playerBehavior";
 import { updateScoreboard } from "./drawScoreboard";
 import { drawNewGame } from "./drawNewGame";
+import { stopMovement } from "./intervalBehavior";
 
 function triggerGameOver() {
   // Switch game state to inactive, ending auto movement
   toggleGameState();
+  stopMovement();
   // Disable controls
   document.removeEventListener("keydown", getMovement);
   document.removeEventListener("keydown", checkActiveGame);

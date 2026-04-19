@@ -8,6 +8,7 @@ import {
 } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
+import { autoMovement } from "./intervalBehavior";
 
 let currentDirection = "";
 
@@ -59,16 +60,11 @@ function translateKeystrokeToElementId(code) {
 function checkActiveGame() {
   if (!gameActive) {
     toggleGameState();
-    // while (gameActive) {
-    //   setInterval(() => executeMovement, 1000);
-    // }
-  }
-  // else if (gameActive) {
-  //   currentDirection =
-  //   setInterval(executeMovement, 1000, currentDirection);
-  // }
 
-  // console.log(currentDirection);
+    // setInterval(() => console.log("Active game"), 1000);
+    // setInterval(() => executeMovement(), 1000, currentDirection);
+  }
+  autoMovement();
 }
 
 function getMovement(e) {
@@ -97,7 +93,8 @@ function getMovement(e) {
   if (currentDirection) {
     console.log("Input " + currentDirection);
     checkActiveGame();
-    executeMovement(currentDirection);
+    // executeMovement(currentDirection);
+    return;
   }
 }
 
@@ -116,6 +113,7 @@ function isMoveThroughSelf(destination) {
 }
 
 function executeMovement(input) {
+  // console.log("Attempting move " + input);
   // get current location from array instead of doc)
   let location = playerSpaces[0];
 

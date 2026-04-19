@@ -20,5 +20,7 @@ let fieldSize = 15;
 let bodyLength = 3;
 
 // TBA: Movement speed
+let seconds = 0.25;
+let speed = seconds * 1000;
 
-export { gameActive, toggleGameState, fieldSize, bodyLength };
+export { gameActive, toggleGameState, fieldSize, bodyLength, speed };
