@@ -1,6 +1,6 @@
 import { gameActive, toggleGameState } from "./gameVariables";
 import { playerScore } from "./playerBehavior";
-import { getMovement, triggerActiveGame } from "./movementControls";
+import { getMovement, checkActiveGame } from "./movementControls";
 import { resetScore, resetPlayerSpaces } from "./playerBehavior";
 import { updateScoreboard } from "./drawScoreboard";
 import { drawNewGame } from "./drawNewGame";
@@ -10,7 +10,7 @@ function triggerGameOver() {
   toggleGameState();
   // Disable controls
   document.removeEventListener("keydown", getMovement);
-  document.removeEventListener("keydown", triggerActiveGame);
+  document.removeEventListener("keydown", checkActiveGame);
 
   let touchControls = document.getElementsByClassName("touchControl");
   for (const button of touchControls) {

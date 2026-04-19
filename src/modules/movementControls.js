@@ -21,7 +21,7 @@ function mapTouchControls() {
 function mapKeypadControls() {
   document.addEventListener("keydown", highlightKeyDisplay);
   document.addEventListener("keyup", unhighlightKeyDisplay);
-  document.addEventListener("keydown", triggerActiveGame);
+  // document.addEventListener("keydown", checkActiveGame);
   document.addEventListener("keydown", getMovement);
   // Replace getMovement with runInput after testing
 }
@@ -56,7 +56,7 @@ function translateKeystrokeToElementId(code) {
   }
 }
 
-function triggerActiveGame(e) {
+function checkActiveGame() {
   if (!gameActive) {
     toggleGameState();
     // while (gameActive) {
@@ -96,6 +96,7 @@ function getMovement(e) {
   }
   if (currentDirection) {
     console.log("Input " + currentDirection);
+    checkActiveGame();
     executeMovement(currentDirection);
   }
 }
@@ -198,6 +199,6 @@ export {
   mapTouchControls,
   mapKeypadControls,
   getMovement,
-  triggerActiveGame,
+  checkActiveGame,
   executeMovement,
 };
