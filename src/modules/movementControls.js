@@ -72,10 +72,6 @@ function triggerActiveGame(e) {
 }
 
 function getMovement(e) {
-  // console.log("Moving");
-  // let currentMovement = () =>
-  //   setInterval(executeMovement, 1000, currentDirection);
-
   // clearInterval(currentMovement);
   if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
     currentDirection = "up";
@@ -98,8 +94,10 @@ function getMovement(e) {
   ) {
     currentDirection = "right";
   }
-  console.log("Input " + currentDirection);
-  executeMovement(currentDirection);
+  if (currentDirection) {
+    console.log("Input " + currentDirection);
+    executeMovement(currentDirection);
+  }
 }
 
 function isMoveOffBoard(destination) {
@@ -131,7 +129,6 @@ function executeMovement(input) {
   } else if (input == "right") {
     destination = parseInt(location.getAttribute("xloc")) + 1;
   }
-  // console.log(destination);
 
   // complete movement if valid
   let newLocation;
@@ -187,7 +184,6 @@ function executeMovement(input) {
   playerSpaces[0].appendChild(playerHead);
 
   // // Orient player head according to movement
-  // rotateHead(input);
 
   // Add tail segments to new spaces
   for (let i = 1; i < playerSpaces.length; i++) {
