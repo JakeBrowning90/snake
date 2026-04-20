@@ -20,7 +20,7 @@ let fieldSize = 15;
 let bodyLength = 3;
 
 // Movement speed
-let seconds = .25;
-let speed = seconds * 1000;
+let cellsPerSec = .25;
+let speed = cellsPerSec * 1000;
 
 export { gameActive, toggleGameState, fieldSize, bodyLength, speed };

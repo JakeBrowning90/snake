@@ -69,29 +69,35 @@ function checkActiveGame() {
 
 function getMovement(e) {
   // clearInterval(currentMovement);
-  if (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") {
+  if (
+    (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") &&
+    direction.current != "down"
+  ) {
     direction.current = "up";
   } else if (
-    e.code == "KeyA" ||
-    e.code == "ArrowLeft" ||
-    e.srcElement.id == "TouchLeft"
+    (e.code == "KeyA" ||
+      e.code == "ArrowLeft" ||
+      e.srcElement.id == "TouchLeft") &&
+    direction.current != "right"
   ) {
     direction.current = "left";
   } else if (
-    e.code == "KeyS" ||
-    e.code == "ArrowDown" ||
-    e.srcElement.id == "TouchDown"
+    (e.code == "KeyS" ||
+      e.code == "ArrowDown" ||
+      e.srcElement.id == "TouchDown") &&
+    direction.current != "up"
   ) {
     direction.current = "down";
   } else if (
-    e.code == "KeyD" ||
-    e.code == "ArrowRight" ||
-    e.srcElement.id == "TouchRight"
+    (e.code == "KeyD" ||
+      e.code == "ArrowRight" ||
+      e.srcElement.id == "TouchRight") &&
+    direction.current != "left"
   ) {
     direction.current = "right";
   }
   if (direction.current) {
-    console.log("Input " + direction.current);
+    // console.log("Input " + direction.current);
     checkActiveGame();
     // executeMovement( direction.current);
   }
@@ -143,7 +149,7 @@ function executeMovement() {
 
   // Prevent movement if trying to immediately reverse into last occupied space
   if (newLocation == playerSpaces[1]) {
-    // console.log("Can't reverse!");
+    console.log("Can't reverse!");
     return;
   }
 
@@ -157,7 +163,7 @@ function executeMovement() {
     return;
   }
   // Start of valid movement
-  console.log("Moving " + input);
+  // console.log("Moving " + input);
   // Add space to start of array
   playerSpaces.unshift(newLocation);
   // Remove head from current location
