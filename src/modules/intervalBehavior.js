@@ -5,7 +5,7 @@ let intervalId;
 
 function autoMovement() {
   // stopMovement();
-  console.log("Beginning auto-movement " + direction.current);
+  // console.log("Beginning auto-movement " + direction.current);
   intervalId ??= setInterval(executeMovement, speed);
 }
 
