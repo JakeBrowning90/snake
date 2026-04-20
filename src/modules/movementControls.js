@@ -10,7 +10,7 @@ import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
 import { autoMovement } from "./intervalBehavior";
 
-let direction = { current: null };
+let currentDirection = null;
 
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
@@ -71,32 +71,32 @@ function getMovement(e) {
   // clearInterval(currentMovement);
   if (
     (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") &&
-    direction.current != "down"
+    currentDirection != "down"
   ) {
-    direction.current = "up";
+    currentDirection = "up";
   } else if (
     (e.code == "KeyA" ||
       e.code == "ArrowLeft" ||
       e.srcElement.id == "TouchLeft") &&
-    direction.current != "right"
+    currentDirection != "right"
   ) {
-    direction.current = "left";
+    currentDirection = "left";
   } else if (
     (e.code == "KeyS" ||
       e.code == "ArrowDown" ||
       e.srcElement.id == "TouchDown") &&
-    direction.current != "up"
+    currentDirection != "up"
   ) {
-    direction.current = "down";
+    currentDirection = "down";
   } else if (
     (e.code == "KeyD" ||
       e.code == "ArrowRight" ||
       e.srcElement.id == "TouchRight") &&
-    direction.current != "left"
+    currentDirection != "left"
   ) {
-    direction.current = "right";
+    currentDirection = "right";
   }
-  if (direction.current) {
+  if (currentDirection) {
     // console.log("Input " + direction.current);
     checkActiveGame();
     // executeMovement( direction.current);
@@ -118,7 +118,7 @@ function isMoveThroughSelf(destination) {
 }
 
 function executeMovement() {
-  let input = direction.current;
+  let input = currentDirection;
   // console.log("Attempting move " + input);
   // get current location from array instead of doc)
   let location = playerSpaces[0];
@@ -199,7 +199,7 @@ function executeMovement() {
 }
 
 export {
-  direction,
+  currentDirection,
   mapTouchControls,
   mapKeypadControls,
   getMovement,
