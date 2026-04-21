@@ -31,33 +31,33 @@ function drawTouchControls() {
   main.appendChild(controlPad);
 }
 
-function drawKeyControls() {
-  let controlPad = document.createElement("div");
-  controlPad.classList.add("keyPad");
+// function drawKeyControls() {
+//   let controlPad = document.createElement("div");
+//   controlPad.classList.add("keyPad");
 
-  let keyUp = document.createElement("span");
-  keyUp.setAttribute("id", "keyUp");
-  keyUp.innerHTML = "W &uarr;";
+//   let keyUp = document.createElement("span");
+//   keyUp.setAttribute("id", "keyUp");
+//   keyUp.innerHTML = "W &uarr;";
 
-  let keyLeft = document.createElement("span");
-  keyLeft.setAttribute("id", "keyLeft");
-  keyLeft.innerHTML = "A &larr;";
+//   let keyLeft = document.createElement("span");
+//   keyLeft.setAttribute("id", "keyLeft");
+//   keyLeft.innerHTML = "A &larr;";
 
-  let keyDown = document.createElement("span");
-  keyDown.setAttribute("id", "keyDown");
-  keyDown.innerHTML = "S &darr;";
+//   let keyDown = document.createElement("span");
+//   keyDown.setAttribute("id", "keyDown");
+//   keyDown.innerHTML = "S &darr;";
 
-  let keyRight = document.createElement("span");
-  keyRight.setAttribute("id", "keyRight");
-  keyRight.innerHTML = "D &rarr;";
+//   let keyRight = document.createElement("span");
+//   keyRight.setAttribute("id", "keyRight");
+//   keyRight.innerHTML = "D &rarr;";
 
-  controlPad.appendChild(keyUp);
-  controlPad.appendChild(keyLeft);
-  controlPad.appendChild(keyDown);
-  controlPad.appendChild(keyRight);
+//   controlPad.appendChild(keyUp);
+//   controlPad.appendChild(keyLeft);
+//   controlPad.appendChild(keyDown);
+//   controlPad.appendChild(keyRight);
 
-  let main = document.getElementsByTagName("main")[0];
-  main.appendChild(controlPad);
-}
+//   let main = document.getElementsByTagName("main")[0];
+//   main.appendChild(controlPad);
+// }
 
-export { drawTouchControls, drawKeyControls };
+export { drawTouchControls };

@@ -3,7 +3,7 @@ import { fieldSize, bodyLength } from "./gameVariables";
 import { spawnFruit } from "./fruitBehavior";
 import { drawScoreboard, updateScoreboard } from "./drawScoreboard";
 import { drawPlayfield, positionPlayerStart } from "./drawPlayfield";
-import { drawTouchControls, drawKeyControls } from "./drawControllers";
+import { drawTouchControls } from "./drawControllers";
 import {
   mapTouchControls,
   mapKeypadControls,
@@ -15,7 +15,7 @@ function drawNewGame() {
   drawPlayfield(fieldSize);
   positionPlayerStart();
   drawTouchControls();
-  drawKeyControls();
+  // drawKeyControls();
   mapTouchControls();
   mapKeypadControls();
   spawnFruit();

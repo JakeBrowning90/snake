@@ -74,6 +74,7 @@ main {
 }
 
 .touchPad {
+  margin-top: auto;
   aspect-ratio: 1/1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
