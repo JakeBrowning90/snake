@@ -9,6 +9,7 @@ import {
 import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
 import { autoMovement } from "./intervalBehavior";
+import { getNeighborSegments } from "./mapBodyShapes";
 
 let currentDirection = null;
 
@@ -192,7 +193,20 @@ function executeMovement() {
 
   // Add tail segments to new spaces
   for (let i = 1; i < playerSpaces.length; i++) {
-    playerSpaces[i].appendChild(addTailSegment());
+    // console.log(
+    //   playerSpaces[i].getAttribute("xloc") +
+    //     ", " +
+    //     playerSpaces[i].getAttribute("yloc"),
+    // );
+    // Get code of neighboring segments
+    // console.log(playerSpaces[i - 1], playerSpaces[i], playerSpaces[i + 1]);
+    let neighborCode = getNeighborSegments(
+      playerSpaces[i - 1],
+      playerSpaces[i],
+      playerSpaces[i + 1],
+    );
+    // console.log(neighborCode);
+    playerSpaces[i].appendChild(addTailSegment(neighborCode));
   }
 
   // checkFruitGet(newLocation);

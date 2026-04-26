@@ -164,6 +164,25 @@ main {
   background-color: rgb(84, 226, 87);
 }
 
+.segment12and6 {
+  clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 20% 100%);
+}
+.segment3and9 {
+  clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
+}
+.segment12and3 {
+  clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%);
+}
+.segment3and6 {
+  clip-path: polygon(100% 20%, 100% 80%, 80% 100%, 20% 100%);
+}
+.segment6and9 {
+  clip-path: polygon(0 80%, 0 20%, 80% 100%, 20% 100%);
+}
+.segment9and12 {
+  clip-path: polygon(0 80%, 0 20%, 20% 0, 80% 0);
+}
+
 .fruit {
   background-color: rgb(230, 47, 72);
   height: 50%;

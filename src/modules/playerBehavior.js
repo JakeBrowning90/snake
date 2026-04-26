@@ -5,9 +5,24 @@ playerHead.setAttribute("id", "playerHead");
 // let playerSegment = document.createElement("div");
 // playerSegment.setAttribute("class", "playerSegment");
 
-function addTailSegment() {
+function addTailSegment(neighborCode) {
+  console.log(neighborCode);
   let playerSegment = document.createElement("div");
   playerSegment.setAttribute("class", "playerSegment");
+  // Add class based on coordinates of neighboring segments
+  if (neighborCode == "02" || neighborCode == "20") {
+    playerSegment.classList.add("segment12and6");
+  } else if (neighborCode == "13" || neighborCode == "31") {
+    playerSegment.classList.add("segment3and9");
+  } else if (neighborCode == "01" || neighborCode == "10") {
+    playerSegment.classList.add("segment12and3");
+  } else if (neighborCode == "12" || neighborCode == "21") {
+    playerSegment.classList.add("segment3and6");
+  } else if (neighborCode == "23" || neighborCode == "32") {
+    playerSegment.classList.add("segment6and9");
+  } else if (neighborCode == "30" || neighborCode == "03") {
+    playerSegment.classList.add("segment9and12");
+  }
   return playerSegment;
 }
 
