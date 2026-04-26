@@ -21,14 +21,17 @@ function triggerGameOver() {
   }
 
   // Display score and reset button
-  let gameOverDiv = document.createElement("div");
-  gameOverDiv.textContent = "Game Over!";
+  let gameOverSpan = document.createElement("span");
+  gameOverSpan.setAttribute("id", "gameOverSpan");
+  gameOverSpan.textContent = "Game Over!";
+
   let resetButton = document.createElement("button");
   resetButton.textContent = "Try again";
   resetButton.addEventListener("click", resetGame);
-  gameOverDiv.appendChild(resetButton);
+  // gameOverDiv.appendChild(resetButton);
   let scoreboard = document.getElementById("scoreboard");
-  scoreboard.appendChild(gameOverDiv);
+  scoreboard.appendChild(gameOverSpan);
+  scoreboard.appendChild(resetButton);
 }
 
 // On reset, clear score and window, start new game

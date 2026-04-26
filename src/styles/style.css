@@ -44,8 +44,11 @@ main {
 #scoreboard {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  /* padding: 10px; */
+  justify-content: space-between;
+  gap: 5px;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: large;
 }
 
 .touchPad,
