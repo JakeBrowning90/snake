@@ -48,8 +48,13 @@ function positionPlayerStart() {
   for (let i = 1; i < bodyLength; i++) {
     let tailCell = document.getElementById(`${center}, ${center - i}`);
     playerSpaces.push(tailCell);
-    // console.log(tailCell);
-    tailCell.appendChild(addTailSegment());
+    let code;
+    if (i < bodyLength - 1) {
+      code = "02";
+    } else {
+      code = "0";
+    }
+    tailCell.appendChild(addTailSegment(code));
   }
 }
 
