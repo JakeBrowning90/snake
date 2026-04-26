@@ -6,7 +6,7 @@ playerHead.setAttribute("id", "playerHead");
 // playerSegment.setAttribute("class", "playerSegment");
 
 function addTailSegment(neighborCode) {
-  console.log(neighborCode);
+  // console.log(neighborCode);
   let playerSegment = document.createElement("div");
   playerSegment.setAttribute("class", "playerSegment");
   // Add class based on coordinates of neighboring segments
@@ -22,6 +22,14 @@ function addTailSegment(neighborCode) {
     playerSegment.classList.add("segment6and9");
   } else if (neighborCode == "30" || neighborCode == "03") {
     playerSegment.classList.add("segment9and12");
+  } else if (neighborCode == "0") {
+    playerSegment.classList.add("tailDown");
+  } else if (neighborCode == "1") {
+    playerSegment.classList.add("tailLeft");
+  } else if (neighborCode == "2") {
+    playerSegment.classList.add("tailUp");
+  } else if (neighborCode == "3") {
+    playerSegment.classList.add("tailRight");
   }
   return playerSegment;
 }
