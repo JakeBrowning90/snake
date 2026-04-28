@@ -59,6 +59,10 @@ main {
   width: 150px;
 }
 
+.touchControl {
+  font-size: x-large;
+}
+
 .keyPad {
   height: 75px;
   padding: 2px;
