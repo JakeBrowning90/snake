@@ -5,22 +5,22 @@ function drawTouchControls() {
   let touchUp = document.createElement("button");
   touchUp.classList.add("touchControl");
   touchUp.setAttribute("id", "TouchUp");
-  touchUp.innerHTML = "&#9650;";
+  touchUp.innerHTML = "&uarr;";
 
   let touchLeft = document.createElement("button");
   touchLeft.classList.add("touchControl");
   touchLeft.setAttribute("id", "TouchLeft");
-  touchLeft.innerHTML = "&#9664;";
+  touchLeft.innerHTML = "&larr;";
 
   let touchRight = document.createElement("button");
   touchRight.classList.add("touchControl");
   touchRight.setAttribute("id", "TouchRight");
-  touchRight.innerHTML = "&#9654;";
+  touchRight.innerHTML = "&rarr;";
 
   let touchDown = document.createElement("button");
   touchDown.classList.add("touchControl");
   touchDown.setAttribute("id", "TouchDown");
-  touchDown.innerHTML = "&#9660;";
+  touchDown.innerHTML = "&darr;";
 
   controlPad.appendChild(touchUp);
   controlPad.appendChild(touchLeft);
