@@ -1,5 +1,5 @@
 import { gameActive, toggleGameState } from "./gameVariables";
-import { playerScore } from "./playerBehavior";
+import { playerScore, setDirection } from "./playerBehavior";
 import { getMovement, checkActiveGame } from "./movementControls";
 import { resetScore, resetPlayerSpaces } from "./playerBehavior";
 import { updateScoreboard } from "./drawScoreboard";
@@ -39,6 +39,7 @@ function resetGame() {
   console.log("Reset!");
   resetScore();
   resetPlayerSpaces();
+  setDirection();
   let main = document.getElementsByTagName("main")[0];
   main.replaceChildren();
   // updateScoreboard();

@@ -47,6 +47,16 @@ function rotateHead(direction) {
   }
 }
 
+let currentDirection = null;
+
+function setDirection(x) {
+  if (x) {
+    currentDirection = x;
+  } else {
+    currentDirection = null;
+  }
+}
+
 // let playerLength = 2
 // let playerSpaces = new Array(playerLength)
 let playerSpaces = new Array();
@@ -70,6 +80,8 @@ export {
   // playerSegment,
   addTailSegment,
   rotateHead,
+  currentDirection,
+  setDirection,
   playerSpaces,
   resetPlayerSpaces,
   playerScore,

@@ -3,15 +3,17 @@ import {
   playerHead,
   addTailSegment,
   rotateHead,
+  currentDirection,
   playerSegment,
   playerSpaces,
+  setDirection,
 } from "./playerBehavior";
 import { checkFruitGet } from "./fruitBehavior";
 import { triggerGameOver } from "./drawGameOver";
 import { autoMovement } from "./intervalBehavior";
 import { getNeighborSegments } from "./mapBodyShapes";
 
-let currentDirection = null;
+// let currentDirection = null;
 
 function mapTouchControls() {
   let touchControls = document.getElementsByClassName("touchControl");
@@ -74,28 +76,29 @@ function getMovement(e) {
     (e.code == "KeyW" || e.code == "ArrowUp" || e.srcElement.id == "TouchUp") &&
     currentDirection != "down"
   ) {
-    currentDirection = "up";
+    setDirection("up");
   } else if (
     (e.code == "KeyA" ||
       e.code == "ArrowLeft" ||
       e.srcElement.id == "TouchLeft") &&
     currentDirection != "right"
   ) {
-    currentDirection = "left";
+    setDirection("left");
   } else if (
     (e.code == "KeyS" ||
       e.code == "ArrowDown" ||
       e.srcElement.id == "TouchDown") &&
-    currentDirection != "up"
+    currentDirection != "up" &&
+    currentDirection
   ) {
-    currentDirection = "down";
+    setDirection("down");
   } else if (
     (e.code == "KeyD" ||
       e.code == "ArrowRight" ||
       e.srcElement.id == "TouchRight") &&
     currentDirection != "left"
   ) {
-    currentDirection = "right";
+    setDirection("right");
   }
   if (currentDirection) {
     // console.log("Input " + direction.current);
