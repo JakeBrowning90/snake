@@ -10,7 +10,7 @@
 
 html,
 body {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 body {
@@ -81,7 +81,7 @@ main {
 }
 
 .touchPad {
-  margin-top: auto;
+  /* margin-top: auto; */
   aspect-ratio: 1/1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
