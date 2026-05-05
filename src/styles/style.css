@@ -28,9 +28,23 @@ body > * {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: self-start;
+  align-items: stretch;
   background-color: rgb(186, 205, 248);
   padding: 10px;
+}
+
+#statusDiv {
+  display: flex;
+  justify-content: space-between;
+}
+#gameOverDisplay {
+  display: flex;
+}
+.headerLeft,
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 main {
@@ -46,8 +60,8 @@ main {
   flex-direction: row;
   justify-content: space-between;
   gap: 5px;
-  border: 1px solid black;
-  padding: 5px;
+  /* border: 1px solid black; */
+  /* padding: 5px; */
   font-size: large;
 }
 
@@ -179,10 +193,10 @@ main {
   clip-path: polygon(100% 10%, 100% 90%, 90% 100%, 10% 100%, 30% 30%);
 }
 .segment6and9 {
-clip-path: polygon(0 10%, 70% 30%, 90% 100%, 10% 100%, 0 90%);
+  clip-path: polygon(0 10%, 70% 30%, 90% 100%, 10% 100%, 0 90%);
 }
 .segment9and12 {
-clip-path: polygon(0 10%, 10% 0, 90% 0, 70% 70%, 0 90%);
+  clip-path: polygon(0 10%, 10% 0, 90% 0, 70% 70%, 0 90%);
 }
 .tailUp {
   clip-path: polygon(50% 0%, 10% 100%, 90% 100%);

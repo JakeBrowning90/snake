@@ -8,11 +8,11 @@ import { mapTouchControls, mapKeypadControls } from "./movementControls";
 import { drawControlSpan } from "./drawControlSpan";
 
 function drawNewGame() {
-  drawScoreboard();
+  // drawScoreboard();
   updateScoreboard();
   drawPlayfield(fieldSize);
   positionPlayerStart();
-  drawControlSpan();
+  // drawControlSpan();
   drawTouchControls();
   // drawKeyControls();
   mapTouchControls();
