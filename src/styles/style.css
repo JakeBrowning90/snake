@@ -47,6 +47,22 @@ header {
   justify-content: space-between;
 }
 
+.headerRight {
+  width: 50%;
+}
+
+#settingsButton {
+  margin-left: auto;
+}
+
+#gameOverDisplay {
+  background-color: pink;
+  font-size: smaller;
+}
+
+#gameOverDisplay > * {
+}
+
 main {
   flex-grow: 1;
   display: flex;

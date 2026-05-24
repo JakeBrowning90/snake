@@ -26,7 +26,7 @@ function triggerGameOver() {
   gameOverDisplay.textContent = "Game Over!";
 
   let resetButton = document.createElement("button");
-  resetButton.textContent = "Try again";
+  resetButton.textContent = "Retry";
   resetButton.addEventListener("click", resetGame);
   gameOverDisplay.appendChild(resetButton);
 
