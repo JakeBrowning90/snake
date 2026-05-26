@@ -35,7 +35,7 @@ header {
 
 #statusDiv {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 #gameOverDisplay {
   display: flex;
@@ -56,8 +56,9 @@ header {
 }
 
 #gameOverDisplay {
-  background-color: pink;
   font-size: smaller;
+  display: flex;
+  gap: 5px;
 }
 
 #gameOverDisplay > * {
@@ -72,6 +73,7 @@ main {
 }
 
 #scoreboard {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
