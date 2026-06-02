@@ -24,6 +24,10 @@ import {
 } from "./modules/movementControls";
 
 import { drawNewGame } from "./modules/drawNewGame";
+import { showSettingsView } from "./modules/settingsMenu";
+
+const settingsButton = document.getElementById("settingsButton");
+settingsButton.addEventListener("click", showSettingsView);
 
 drawNewGame();
 // function timedLoop(){
